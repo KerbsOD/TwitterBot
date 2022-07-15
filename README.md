@@ -9,8 +9,7 @@ Everyday at 5pm, the bot will upload a 50 Cent photo with the price in half, hal
 - Mention Like
 
 ### To do
-- Automatic post
-- Migrate to server
+- Twitter API v2.0 migration
 
 ### License 
 * MIT
