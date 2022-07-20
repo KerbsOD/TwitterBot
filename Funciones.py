@@ -104,8 +104,6 @@ def reply(mention_id):
 
 # READ STORED ID 
 def read(file):
-    
-    # Open file
     read = open(file, 'r')
     
     # Save data
@@ -118,8 +116,6 @@ def read(file):
 
 # STORE NEW ID
 def store(file, new_id):
-    
-    # Open file
     write = open(file, 'w')
     
     # Write new data
@@ -130,7 +126,6 @@ def store(file, new_id):
 # GET USER ID KNOWING USERNAME
 def user_id(username): 
     user = api.get_user(screen_name = str(username))
-    
     return user
 
 
@@ -200,11 +195,11 @@ def Daily():
 # Yeah, uh-huh
 # So seductive
 
-# I'll take you to the dollar blue shop
+# I'll take you to the dollar shop
 # I'll let you lick the lollipop
 # Go 'head, girl, don't you stop
 # Keep goin' until you hit the spot, woah
-# I'll take you to the dollar blue shop (Yeah)
+# I'll take you to the dollar shop (Yeah)
 # Want one taste of what I got? (Uh-huh)
 # I'll have you spendin' all you got (Come on)
 # Keep goin' until you hit the spot, woah
@@ -227,11 +222,11 @@ def Daily():
 # I'll melt in your mouth, girl, not in your hand, ha-ha
 
 
-# I'll take you to the dollar blue shop
+# I'll take you to the dollar shop
 # I'll let you lick the lollipop
 # Go 'head, girl, don't you stop
 # Keep goin' until you hit the spot, woah
-# I'll take you to the dollar blue shop
+# I'll take you to the dollar shop
 # Want one taste of what I got?
 # I'll have you spendin' all you got
 # Keep goin' until you hit the spot, woah
@@ -258,19 +253,19 @@ def Daily():
 # All my champagne campaign, bottle after bottle, it's on
 # And we gon' sip 'til every bubble in every bottle is gone
 
-# I'll take you to the dollar blue shop
+# I'll take you to the dollar shop
 # I'll let you lick the lollipop
 # Go 'head, girl, don't you stop
 # Keep goin' until you hit the spot, woah
-# I'll take you to the dollar blue shop
+# I'll take you to the dollar shop
 # Want one taste of what I got?
 # I'll have you spendin' all you got
 # Keep goin' until you hit the spot, woah
-# I'll take you to the dollar blue shop
+# I'll take you to the dollar shop
 # I'll let you lick the lollipop
 # Go 'head, girl, don't you stop
 # Keep goin' until you hit the spot, woah
-# I'll take you to the dollar blue shop
+# I'll take you to the dollar shop
 # Want one taste of what I got?
 # I'll have you spendin' all you got
 # Keep goin' until you hit the spot, woah
