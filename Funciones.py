@@ -104,6 +104,7 @@ def reply(mention_id):
 
 # READ STORED ID 
 def read(file):
+    
     read = open(file, 'r')
     
     # Save data
@@ -116,6 +117,7 @@ def read(file):
 
 # STORE NEW ID
 def store(file, new_id):
+    
     write = open(file, 'w')
     
     # Write new data
@@ -125,18 +127,21 @@ def store(file, new_id):
 
 # GET USER ID KNOWING USERNAME
 def user_id(username): 
+    
     user = api.get_user(screen_name = str(username))
     return user
 
 
 # GET USERNAME KNOWING USER ID
 def get_username(id):
+    
     name = api.get_user(user_id=id)
     return name.screen_name
    
    
 # GET BOT ID  
 def my_id(): 
+    
     bot_data = user_id(bot_name)
     return bot_data.id
     
