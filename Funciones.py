@@ -1,7 +1,10 @@
 # IMPORTS
+import collections
+from telnetlib import NEW_ENVIRON
 from xmlrpc import client
 from PIL import Image, ImageDraw, ImageFont
 from datetime import datetime
+from pymongo import MongoClient
 import os.path
 import time 
 import requests
@@ -35,11 +38,15 @@ dir = os.path.dirname(os.path.abspath(__file__))
 
 
 # VARIABLES
-ID_FILE      = os.path.join(dir, 'Resources', 'last.txt')
-IMAGEN_PATH  = os.path.join(dir, 'Resources', 'image.jpg')
+IMAGE_PATH   = os.path.join(dir, 'Resources', 'image.jpg')
 MEME_PATH    = os.path.join(dir, 'Resources', 'meme.jpg')
 FONT_PATH    = os.path.join(dir, 'Resources', 'impact.ttf')
+CLUSTER      = MongoClient("")
+DB           = CLUSTER[""]      # Your mongoDB data base
+COLLECTION   = DB[""]           # Your data base collection
 
+
+#print(ID_FILE)
 
 # PRICE
 def price(): 
@@ -59,7 +66,7 @@ def price():
 def imagen():
     
     # Open base image
-    imagen = Image.open(IMAGEN_PATH)
+    imagen = Image.open(IMAGE_PATH)
     
     # Config Text
     pos    = (180,840)
@@ -102,46 +109,30 @@ def reply(mention_id):
     return reply
 
 
-# READ STORED ID 
-def read(file):
-    
-    read = open(file, 'r')
-    
-    # Save data
-    last_seen_id = int(read.read().strip())
-    read.close()
-    
-    # Return data
-    return last_seen_id
-
-
 # STORE NEW ID
-def store(file, new_id):
-    
-    write = open(file, 'w')
-    
-    # Write new data
-    write.write(str(new_id))
-    write.close()
-    
+def store(new_id):
+    COLLECTION.update_one({"_id": 0}, {"$set":{"lastID": new_id}}) # My post structure: {"_id": 0, "lastID": 'post id'}
+
+
+# ACCESS ID
+def access():
+    id = COLLECTION.find_one({"_id": 0})
+    return id['lastID']
 
 # GET USER ID KNOWING USERNAME
 def user_id(username): 
-    
     user = api.get_user(screen_name = str(username))
     return user
 
 
 # GET USERNAME KNOWING USER ID
 def get_username(id):
-    
     name = api.get_user(user_id=id)
     return name.screen_name
    
    
 # GET BOT ID  
 def my_id(): 
-    
     bot_data = user_id(bot_name)
     return bot_data.id
     
@@ -149,11 +140,12 @@ def my_id():
 # GET MENTIONS
 def get_mentions():
     
+    id = access()
+    
     # Request mentions 
-    mentions = client.get_users_mentions(id = my_id(), since_id = read(ID_FILE), tweet_fields = ['created_at'], 
+    mentions = client.get_users_mentions(id = my_id(), since_id = id, tweet_fields = ['created_at'], 
     expansions = ['author_id'])
     
-    # Return list
     return mentions
 
 
@@ -185,7 +177,7 @@ def answer():
             client.like(mention.id)
         
             # Store mention id
-            store(ID_FILE, mention.id) 
+            store(mention.id) 
             
 
 # POST AT MARKET CLOSE
@@ -200,11 +192,11 @@ def Daily():
 # Yeah, uh-huh
 # So seductive
 
-# I'll take you to the dollar shop
+# I'll take you to the dollar blue shop
 # I'll let you lick the lollipop
 # Go 'head, girl, don't you stop
 # Keep goin' until you hit the spot, woah
-# I'll take you to the dollar shop (Yeah)
+# I'll take you to the dollar blue shop (Yeah)
 # Want one taste of what I got? (Uh-huh)
 # I'll have you spendin' all you got (Come on)
 # Keep goin' until you hit the spot, woah
@@ -227,11 +219,11 @@ def Daily():
 # I'll melt in your mouth, girl, not in your hand, ha-ha
 
 
-# I'll take you to the dollar shop
+# I'll take you to the dollar blue shop
 # I'll let you lick the lollipop
 # Go 'head, girl, don't you stop
 # Keep goin' until you hit the spot, woah
-# I'll take you to the dollar shop
+# I'll take you to the dollar blue shop
 # Want one taste of what I got?
 # I'll have you spendin' all you got
 # Keep goin' until you hit the spot, woah
@@ -258,19 +250,19 @@ def Daily():
 # All my champagne campaign, bottle after bottle, it's on
 # And we gon' sip 'til every bubble in every bottle is gone
 
-# I'll take you to the dollar shop
+# I'll take you to the dollar blue shop
 # I'll let you lick the lollipop
 # Go 'head, girl, don't you stop
 # Keep goin' until you hit the spot, woah
-# I'll take you to the dollar shop
+# I'll take you to the dollar blue shop
 # Want one taste of what I got?
 # I'll have you spendin' all you got
 # Keep goin' until you hit the spot, woah
-# I'll take you to the dollar shop
+# I'll take you to the dollar blue shop
 # I'll let you lick the lollipop
 # Go 'head, girl, don't you stop
 # Keep goin' until you hit the spot, woah
-# I'll take you to the dollar shop
+# I'll take you to the dollar blue shop
 # Want one taste of what I got?
 # I'll have you spendin' all you got
 # Keep goin' until you hit the spot, woah

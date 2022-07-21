@@ -7,3 +7,7 @@ BEARER_TOKEN        = ''
 
 
 
+# My post structure: {"_id": 0, "lastID": 1549588481466421248}
+
+
+

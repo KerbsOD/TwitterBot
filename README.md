@@ -19,6 +19,8 @@ Everyday at 5pm, the bot will upload a 50 Cent photo with the price in half, hal
   - pillow
   - schedule
   - requests
+  - pymongo
+  - pymongo[srv]
  
 - __Third__: Add a __"TKeys"__ file in the resources folder, then add your twitter keys in the next order:
   - Api Key

@@ -2,3 +2,5 @@ tweepy
 pillow
 schedule
 requests
+pymongo
+pymongo[srv]
