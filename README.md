@@ -3,6 +3,7 @@
 This is a twitter bot that updates the dollar price in relation with the peso Argentino.
 Everyday at 5pm, the bot will upload a 50 Cent photo with the price in half, half dollar in relation with the peso.
 
+This is not just a Twitter image upload, the code was made so you can understand and edit it. Feel free to see how the Twitter API works with this software. Good luck!
 
 ### Features
 - Automatic post
@@ -22,13 +23,11 @@ Everyday at 5pm, the bot will upload a 50 Cent photo with the price in half, hal
   - pymongo
   - pymongo[srv]
  
-- __Third__: Add a __"TKeys"__ file in the resources folder, then add your twitter keys in the next order:
-  - Api Key
-  - Api Key Secret
-  - Acces Token
-  - Acces Token Secret
+- __Third__: Complete the config.py file with your twitter keys
 
-- __Fourth__: Execute Main.py
+- __Fourth__: Complete your MongoDB data from line 44 to 46.
+
+-__Fifth__: Execute Bot.py
 
 
 ### License 
