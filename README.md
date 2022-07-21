@@ -27,7 +27,7 @@ This is not just a Twitter image upload, the code was made so you can understand
 
 - __Fourth__: Complete your MongoDB data from line 44 to 46.
 
--__Fifth__: Execute Bot.py
+- __Fifth__: Execute Bot.py
 
 
 ### License 
