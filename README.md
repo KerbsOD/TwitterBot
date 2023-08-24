@@ -35,3 +35,9 @@ This is not just a Twitter image upload, the code was made so you can understand
 
 ### License 
 * MIT
+
+# Outdated
+---
+Due to a change in twitter bot rules this code is just outdated and won't work.
+
+
